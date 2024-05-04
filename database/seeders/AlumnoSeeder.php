@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Producto;
+use App\Models\Alumno;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class ProductoSeeder extends Seeder
+class AlumnoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Producto::factory(50)->create(); // Es lo mismo que un for
+        Alumno::factory(50)->create(); // Es lo mismo que un for
     }
 }

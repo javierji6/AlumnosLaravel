@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Producto;
+use App\Models\Alumno;
 use App\Http\Requests\StoreProductoRequest;
 use App\Http\Requests\UpdateProductoRequest;
 
-class ProductoController extends Controller
+class AlumnoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $alumnos = Alumno::all();
+        return view('alumnos.index', ["alumnos"=>$alumnos]);
     }
 
     /**
@@ -35,7 +36,7 @@ class ProductoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Producto $producto)
+    public function show(Alumno $alumno)
     {
         //
     }
@@ -43,7 +44,7 @@ class ProductoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Producto $producto)
+    public function edit(Alumno $alumno)
     {
         //
     }
@@ -51,7 +52,7 @@ class ProductoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductoRequest $request, Producto $producto)
+    public function update(UpdateProductoRequest $request, Alumno $alumno)
     {
         //
     }
@@ -59,7 +60,7 @@ class ProductoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Producto $producto)
+    public function destroy(Alumno $alumno)
     {
         //
     }
