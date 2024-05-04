@@ -4,9 +4,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -20,5 +20,6 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('main', [MainController::class, "index"]);
+Route::get('/', [MainController::class, "index"])->name("main");
 Route::view("about", "paginas.about");
+Route::view("proyectos", "paginas.proyectos")->name("proyectos")->middleware("auth");
