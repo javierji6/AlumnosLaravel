@@ -32,6 +32,7 @@ class AlumnoController extends Controller
     {
         $datos = $request->input();
         $alumno = new Alumno($datos);
+        session()->flash("status", "Se ha creado el alumno $alumno->nombre");
         $alumno->save();
         return redirect()->route('alumnos.index');
     }
@@ -49,7 +50,7 @@ class AlumnoController extends Controller
      */
     public function edit(Alumno $alumno)
     {
-        //
+        return view("alumnos.edit", compact("alumno"));
     }
 
     /**
@@ -57,7 +58,10 @@ class AlumnoController extends Controller
      */
     public function update(UpdateProductoRequest $request, Alumno $alumno)
     {
-        //
+        $datos = $request->input();
+        $alumno->update($datos);
+        session()->flash("status", "Se ha actualizado el alumno $alumno->nombre");
+        return redirect()->route('alumnos.index');
     }
 
     /**
@@ -65,6 +69,8 @@ class AlumnoController extends Controller
      */
     public function destroy(Alumno $alumno)
     {
-        //
+        session()->flash("status", "Se ha borrado el alumno $alumno->nombre");
+        $alumno->delete();
+        return redirect()->route('alumnos.index');
     }
 }
