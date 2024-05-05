@@ -1,4 +1,4 @@
-<nav class="h-10v bg-nav flex flex-grow justify-start items-center space-x-2 p-3">
+<nav class="h-16 bg-nav flex justify-start items-center space-x-4 p-3">
     <a class="btn btn-primary" href="about">About</a>
     <a class="btn btn-secondary" href="/">Home</a>
     <a class="btn btn-accent" href="{{route("alumnos.index")}}">Alumnos</a>
