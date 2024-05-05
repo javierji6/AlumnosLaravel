@@ -11,7 +11,7 @@ class StoreProductoRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class StoreProductoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "nombre"=>"string|required|min:5|max:50",
+            "email"=>"email|required|unique:alumnos", //Verifica con unique que no haya otro email igual
+            "edad"=>"integer|required|between:15,80"
         ];
     }
 }
