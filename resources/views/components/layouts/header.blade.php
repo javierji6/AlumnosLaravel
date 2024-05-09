@@ -1,6 +1,8 @@
 <header class="h-24 bg-header p-5 flex justify-between items-center">
-    <img class="h-full mr-4" src="{{asset("/images/logo.png")}}" alt="Logo">
-    <h1 class="text-3xl text-white font-bold">Proyecto Laravel</h1>
+    <a href="/" class="h-full mr-4 flex items-center">
+        <img class="max-h-full" src="{{ asset("/images/logo.png") }}" alt="Logo">
+    </a>
+    <h1 class="text-3xl text-white font-bold">Gestión de Alumnos</h1>
     <div class="flex items-center">
         @guest
             <a class="btn glass mr-2" href="/login">{{__("Login")}}</a>

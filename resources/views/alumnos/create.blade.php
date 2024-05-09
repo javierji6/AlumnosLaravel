@@ -1,38 +1,57 @@
 <x-layouts.layout>
-    <div class="flex flex-row justify-center p-5 bg-gray-200 max-h-full">
-        <form method="POST" action="{{ route('alumnos.store') }}" class="bg-white p-7 rounded-2xl">
+    <div class="flex justify-center p-5 bg-gray-200 h-full">
+        <form id="createForm" method="POST" action="{{ route('alumnos.store') }}" class="bg-white p-8 rounded-lg shadow-lg">
             @csrf
-            <x-input-label for="nombre">Nombre</x-input-label>
-            <input type="text" name="nombre" value="{{old("nombre")}}" id=""> <!--old mantiene el ultimo valor-->
-            @if ($errors->get("nombre"))
-                @foreach($errors->get("nombre") as $error)
-                    <div class="text-sm text-red-600">{{$error}}</div>
-                @endforeach
-            @endif
-            <x-input-label for="dni">DNI</x-input-label>
-            <input type="text" name="dni" value="{{old("dni")}}" id="">
-            @if ($errors->get("dni"))
-                @foreach($errors->get("dni") as $error)
-                    <div class="text-sm text-red-600">{{$error}}</div>
-                @endforeach
-            @endif
-            <x-input-label for="email">Email</x-input-label>
-            <input type="email" name="email" value="{{old("email")}}" id="">
-            @if ($errors->get("email"))
-                @foreach($errors->get("email") as $error)
-                    <div class="text-sm text-red-600">{{$error}}</div>
-                @endforeach
-            @endif
-            <x-input-label for="edad">Edad</x-input-label>
-            <input type="text" name="edad" value="{{old("edad")}}" id="">
-            @if ($errors->get("edad"))
-                @foreach($errors->get("edad") as $error)
-                    <div class="text-sm text-red-600">{{$error}}</div>
-                @endforeach
-            @endif
-            <br/>
-            <input class="btn btn-primary m-2" type="submit" value="Guardar" id=""/>
-            <a href="{{route("alumnos.index")}}" class="btn btn-primary m-2">Cancelar</a>
+            <div class="mb-4">
+                <x-input-label for="nombre">Nombre</x-input-label>
+                <input type="text" name="nombre" value="{{ old('nombre') }}" class="input-field">
+                @error('nombre')
+                <div class="text-sm text-red-600">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-4">
+                <x-input-label for="dni">DNI</x-input-label>
+                <input type="text" name="dni" value="{{ old('dni') }}" class="input-field">
+                @error('dni')
+                <div class="text-sm text-red-600">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-4">
+                <x-input-label for="email">Email</x-input-label>
+                <input type="email" name="email" value="{{ old('email') }}" class="input-field">
+                @error('email')
+                <div class="text-sm text-red-600">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-4">
+                <x-input-label for="edad">Edad</x-input-label>
+                <input type="text" name="edad" value="{{ old('edad') }}" class="input-field">
+                @error('edad')
+                <div class="text-sm text-red-600">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="flex justify-end">
+                <button type="button" onclick="confirmCreate()" class="btn btn-primary mr-2">Guardar</button>
+                <a href="{{ route('alumnos.index') }}" class="btn btn-secondary">Cancelar</a>
+            </div>
         </form>
     </div>
 </x-layouts.layout>
+<script>
+    function confirmCreate() {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: '¿Quieres crear un nuevo alumno?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Crear',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('createForm').submit();
+            }
+        });
+    }
+</script>

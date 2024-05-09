@@ -5,5 +5,4 @@
         </svg>
         <p class="text-sm">Copyright © 2024 - {{__("All rights reserved.")}}</p>
     </div>
-
 </footer>
