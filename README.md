@@ -1,66 +1,107 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Documentación del Proyecto Laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este README va documentando el proyecto de Laravel.
 
-## About Laravel
+## 1. Inicio del Proyecto
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Para crear un nuevo proyecto de Laravel, tenemos que ejecutar el siguiente comando:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+```bash
+laravel new nombre-del-proyecto
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Este comando creará una nueva carpeta con la estructura del Laravel.
 
-## Learning Laravel
+## 2. Configuración con la Base de Datos
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Después de iniciar el proyecto, configuramos la base de datos en el archivo `.env` para que Laravel pueda conectarse.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```dotenv
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nombre_db
+DB_USERNAME=nombre_usuario
+DB_PASSWORD=contrasena
+```
+## 3. Instalación de Tailwind con Breeze y DaisyUI
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Para instalar el framework de Tailwind CSS junto con Breeze y DaisyUI, debemos de tener Node.js instalado en el sistema que se puede descargar desde [aquí](https://nodejs.org/en/).
 
-## Laravel Sponsors
+Una vez que tengamos Node.js instalado, debemos de ejecutar estos comandos:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```bash
+composer require laravel/breeze --dev
+php artisan breeze:install
+npm install && npm run dev
+```
 
-### Premium Partners
+## 4. Instalación de SweetAlert2
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Para instalar el SweetAlert2 para mostrar alertas en la aplicación, debemos de ejecuta el siguiente comando:
 
-## Contributing
+```bash
+npm install sweetalert2
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Ahora debemos de importar el plugin en `resources/js/app.js`
 
-## Code of Conduct
+```javascript
+import Swal from 'sweetalert2';
+window.Swal = Swal;
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 5. Creación de Layouts (Componentes)
 
-## Security Vulnerabilities
+Creamos layouts (componentes) en la carpeta `resources` y empleamos Tailwind CSS y DaisyUI para dar estilo.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 6. Creación de Controladores y Vistas
 
-## License
+Usamos el generador proporciona Laravel para crear los controladores y vistas necesarias.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+php artisan make:controller NombreController
+php artisan make:view nombre_carpeta_opcional/nombre_vista
+```
+
+## 7. Creación de Migraciones (Tabla)
+
+Para crear una migración de una tabla, para ello usamos el siguiente comando:
+
+```bash
+php artisan make:migration create_nombre_tabla_table
+```
+
+## 8. Creación del Modelo Alumno
+
+Creamos un modelo para interactuar con la tabla `alumnos` de la base de datos.
+
+```bash
+php artisan make:model Alumno
+```
+
+## 9. Controlar las Vistas
+
+En `routes/web.php` definimos las rutas.
+
+- `Route::get('/', [MainController::class, "index"])->name("main");`, define una ruta GET que apunta a la raíz del sitio web y la opción `->name("main")` establece un nombre para la ruta.
+- `Route::view("ejemplo1", "paginas.ejemplo1");`, define una ruta GET para la URL '/ejemplo1'.
+- `Route::view("ejemplo2", "paginas.ejemplo2")->name("ejemplo2")->middleware("auth");`, con `middleware "auth"` especificamos que solo los usuarios autenticados podrán acceder a ella.
+- `Route::resource("alumnos", \App\Http\Controllers\AlumnoController::class);`, define las rutas para el recurso `alumnos` utilizando el controlador.
+
+```php
+// Ejemplo
+Route::get('/', [MainController::class, "index"])->name("main");
+Route::view("ejemplo1", "paginas.ejemplo1");
+Route::view("ejemplo2", "paginas.ejemplo2")->name("ejemplo2")->middleware("auth");
+Route::resource("alumnos", \App\Http\Controllers\AlumnoController::class);
+```
+## 10. Instalación y configuración del Idioma Español
+
+Podemos instalar el idioma español usando el siguiente comando:
+
+```bash
+composer require laravel-lang/lang-es
+```
+
+Ahora tenemos que configurar el idioma en la aplicación, para ello vamos a `.env` y cambiamos `APP_LOCALE=en` a `APP_LOCALE=es`.
