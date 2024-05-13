@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alumno;
-use App\Http\Requests\StoreProductoRequest;
-use App\Http\Requests\UpdateProductoRequest;
+use App\Http\Requests\StoreAlumnoRequest;
+use App\Http\Requests\UpdateAlumnoRequest;
 
 class AlumnoController extends Controller
 {
@@ -28,7 +28,7 @@ class AlumnoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProductoRequest $request)
+    public function store(StoreAlumnoRequest $request)
     {
         $datos = $request->input();
         $alumno = new Alumno($datos);
@@ -56,7 +56,7 @@ class AlumnoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductoRequest $request, Alumno $alumno)
+    public function update(UpdateAlumnoRequest $request, Alumno $alumno)
     {
         $datos = $request->input();
         $alumno->update($datos);
