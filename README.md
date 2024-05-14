@@ -64,6 +64,8 @@ php artisan make:controller AlumnoController
 php artisan make:view alumnos/nombre_vista
 ```
 
+(Si hacemos el paso 8 no es necesario ejecutar, `php artisan make:controller AlumnoController` ya que lo genera)
+
 ## 7. Creación de Migraciones (Tabla)
 
 - Para crear/ejecutar una migración de una tabla, para ello usamos el siguiente comando: `php artisan make:migration create_alumnos_table`
