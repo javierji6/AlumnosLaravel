@@ -21,7 +21,5 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::get('/', [MainController::class, "index"])->name("main");
-Route::view("about", "paginas.about");
-Route::view("proyectos", "paginas.proyectos")->name("proyectos")->middleware("auth");
 Route::resource("alumnos", \App\Http\Controllers\AlumnoController::class);
 Route::resource("profesores", \App\Http\Controllers\ProfesorController::class);

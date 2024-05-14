@@ -1,4 +1,4 @@
-<x-layouts.layout>
+<x-secciones.layout>
     <div class="flex justify-center p-5 bg-gray-200 h-full">
         <form id="updateForm" method="POST" action="{{ route('profesores.update', $profesor->id) }}" class="bg-white p-8 rounded-lg shadow-lg">
         @method('PUT')
@@ -55,4 +55,4 @@
             });
         }
     </script>
-</x-layouts.layout>
+</x-secciones.layout>

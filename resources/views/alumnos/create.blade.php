@@ -1,4 +1,4 @@
-<x-layouts.layout>
+<x-secciones.layout>
     <div class="flex justify-center p-5 bg-gray-200 h-full">
         <form id="createForm" method="POST" action="{{ route('alumnos.store') }}" class="bg-white p-8 rounded-lg shadow-lg">
             @csrf
@@ -36,7 +36,7 @@
             </div>
         </form>
     </div>
-</x-layouts.layout>
+</x-secciones.layout>
 <script>
     function confirmCreate() {
         Swal.fire({

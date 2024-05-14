@@ -1,4 +1,4 @@
-<x-layouts.layout>
+<x-secciones.layout>
     <div class="p-3">
         <h1 class="text-3xl font-bold text-red-600 text-center mb-2">Listado de alumnos</h1>
         @if(session()->get("status"))
@@ -13,19 +13,19 @@
             </div>
         @endauth
     </div>
-    <div class="max-h-[60vh] overflow-y-auto">
+    <div class="max-h-[60vh] overflow-y-auto min-h-screen">
         <table class="w-full border-collapse border border-gray-300">
             <thead class="text-lg text-white bg-gray-800 sticky top-0">
-            <tr>
-                <th class="px-2 py-2">{{__("Nombre")}}</th>
-                <th class="px-2 py-2">DNI</th>
-                <th class="px-2 py-2">Edad</th>
-                <th class="px-2 py-2">Email</th>
-                @auth
-                    <th class="px-2 py-2">Editar</th>
-                    <th class="px-2 py-2">Borrar</th>
-                @endauth
-            </tr>
+                <tr>
+                    <th class="px-2 py-2">{{__("Nombre")}}</th>
+                    <th class="px-2 py-2">DNI</th>
+                    <th class="px-2 py-2">Edad</th>
+                    <th class="px-2 py-2">Email</th>
+                    @auth
+                        <th class="px-2 py-2">Editar</th>
+                        <th class="px-2 py-2">Borrar</th>
+                    @endauth
+                </tr>
             </thead>
             <tbody class="text-base text-gray-700">
             @foreach($alumnos as $alumno)
@@ -59,7 +59,7 @@
             </tbody>
         </table>
     </div>
-</x-layouts.layout>
+</x-secciones.layout>
 <script>
     const statusMessage = document.getElementById('statusMessage');
     setTimeout(function() {

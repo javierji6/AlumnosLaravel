@@ -8,11 +8,11 @@
         @vite(["resources/css/app.css", "resources/js/app.js"])
     </head>
     <body>
-        <x-layouts.header/>
-        <x-layouts.nav/>
+        <x-secciones.header/>
+        <x-secciones.nav/>
         <main class="bg-main">
             {{$slot}}
         </main>
-        <x-layouts.footer/>
+        <x-secciones.footer/>
     </body>
 </html>
