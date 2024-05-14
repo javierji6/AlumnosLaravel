@@ -9,5 +9,5 @@ class Alumno extends Model
 {
     use HasFactory;
 
-    protected $fillable=["nombre", "dni", "edad", "email"];
+    protected $fillable=["nombre", "dni", "edad", "email"]; // Especifíca los atributos que se pueden asignar en masa
 }

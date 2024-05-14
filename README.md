@@ -7,7 +7,7 @@ Este README va documentando el proyecto de Laravel.
 Para crear un nuevo proyecto de Laravel, tenemos que ejecutar el siguiente comando:
 
 ```bash
-laravel new nombre-del-proyecto
+laravel new AlumnosLaravel
 ```
 
 Este comando creará una nueva carpeta con la estructura del Laravel.
@@ -20,9 +20,9 @@ Después de iniciar el proyecto, configuramos la base de datos en el archivo `.e
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=nombre_db
-DB_USERNAME=nombre_usuario
-DB_PASSWORD=contrasena
+DB_DATABASE=alumnos
+DB_USERNAME=root
+DB_PASSWORD=
 ```
 ## 3. Instalación de Tailwind con Breeze y DaisyUI
 
@@ -33,7 +33,7 @@ Una vez que tengamos Node.js instalado, debemos de ejecutar estos comandos:
 ```bash
 composer require laravel/breeze --dev
 php artisan breeze:install
-npm install && npm run dev
+npm install
 ```
 
 ## 4. Instalación de SweetAlert2
@@ -60,25 +60,24 @@ Creamos layouts (componentes) en la carpeta `resources` y empleamos Tailwind CSS
 Usamos el generador proporciona Laravel para crear los controladores y vistas necesarias.
 
 ```bash
-php artisan make:controller NombreController
-php artisan make:view nombre_carpeta_opcional/nombre_vista
+php artisan make:controller AlumnoController
+php artisan make:view alumnos/nombre_vista
 ```
 
 ## 7. Creación de Migraciones (Tabla)
 
-Para crear una migración de una tabla, para ello usamos el siguiente comando:
-
-```bash
-php artisan make:migration create_nombre_tabla_table
-```
+- Para crear/ejecutar una migración de una tabla, para ello usamos el siguiente comando: `php artisan make:migration create_alumnos_table`
+- Para eliminar lo anterior y volver a ejecutar: `php artisan migrate:fresh`
 
 ## 8. Creación del Modelo Alumno
 
 Creamos un modelo para interactuar con la tabla `alumnos` de la base de datos.
 
 ```bash
-php artisan make:model Alumno
+php artisan make:model Alumno --all
 ```
+
+La clase `AlumnoFactory`  es una fábrica para generar datos ficticios, que para rellenar la tabla podemos utilizar el comando: `php artisan migrate:fresh -seed`
 
 ## 9. Controlar las Vistas
 
@@ -105,3 +104,16 @@ composer require laravel-lang/lang-es
 ```
 
 Ahora tenemos que configurar el idioma en la aplicación, para ello vamos a `.env` y cambiamos `APP_LOCALE=en` a `APP_LOCALE=es`.
+
+## 11. Implementación de Añadir, Editar y Borrar
+
+En el `AlumnoController` podemos implementar la funcionalidad para añadir, editar y borrar.
+
+## 12. Ejecución del proyecto
+
+Para ejecutar el proyecto debemos de ejecutar los siguientes comandos:
+
+```bash
+php artisan serve
+npm run dev
+```

@@ -16,10 +16,10 @@ class AlumnoFactory extends Factory
      */
 
     private function getDni():string {
-        $number = fake()->numberBetween(10000000-99999999);
+        $number = fake()->numberBetween(10000000, 99999999);
         $letras = "TRWAGMYFPDXBNJZSQVHLCKE";
         $letra = $letras[$number % 23];
-        return "$number-$letra";
+        return "$number$letra";
     }
     public function definition(): array
     {
