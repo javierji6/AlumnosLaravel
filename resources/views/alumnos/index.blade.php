@@ -5,6 +5,11 @@
                 <a class="btn btn-primary" href="{{route("alumnos.create")}}">Nuevo alumno</a>
             </div>
         @endauth
+        @guest <!-- Si el usuario no esta autenticado -->
+                <div class="flex justify-center">
+                    <a></a>
+                </div>
+        @endguest
         <h1 class="text-3xl font-bold text-red-600 text-center">Listado de alumnos</h1>
         <p>Página: <b>{{$alumnos->currentPage()}}</b> de <b>{{$alumnos->lastPage()}}</b></p>
     </div>
