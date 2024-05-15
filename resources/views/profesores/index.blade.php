@@ -5,12 +5,17 @@
                 <a class="btn btn-primary" href="{{route("profesores.create")}}">Nuevo profesor</a>
             </div>
         @endauth
-        <h1 class="text-3xl font-bold text-red-600 text-center mb-2">Listado de profesores</h1>
+        @guest <!-- Si el usuario no esta autenticado -->
+            <div class="flex justify-center">
+                <a></a>
+            </div>
+        @endguest
+        <h1 class="text-3xl font-bold text-red-600 text-center">Listado de profesores</h1>
             <p>Página: <b>{{$profesores->currentPage()}}</b> de <b>{{$profesores->lastPage()}}</b></p>
     </div>
     <div>
         @if(session()->get("status"))
-            <div id="statusMessage" role="alert" class="alert alert-success flex items-center justify-center mb-8">
+            <div id="statusMessage" role="alert" class="alert alert-success flex items-center justify-center m-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 <span>{{session()->get("status")}}</span>
             </div>
