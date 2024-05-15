@@ -26,7 +26,7 @@ class AlumnoFactory extends Factory
         return [
             "nombre" => fake() -> name,
             "email" => fake() -> email,
-            "edad" => fake() -> numberBetween(15, 80),
+            "edad" => fake() -> numberBetween(13, 50),
             "dni" => $this->getDni()
         ];
     }

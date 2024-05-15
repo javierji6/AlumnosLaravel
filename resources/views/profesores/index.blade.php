@@ -58,6 +58,11 @@
             @endforeach
             </tbody>
         </table>
+        <div class="flex justify-center mt-5">
+            <div class="flex justify-center bg-white p-3">
+                {{$profesores->links()}}
+            </div>
+        </div>
     </div>
 </x-secciones.layout>
 <script>

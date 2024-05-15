@@ -1,17 +1,20 @@
 <x-secciones.layout>
-    <div class="p-3">
-        <h1 class="text-3xl font-bold text-red-600 text-center mb-2">Listado de alumnos</h1>
-        @if(session()->get("status"))
-            <div id="statusMessage" role="alert" class="alert alert-success flex items-center justify-center mb-8">
-                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                <span>{{session()->get("status")}}</span>
-            </div>
-        @endif
+    <div class="p-2 flex justify-between items-center">
         @auth
             <div class="flex justify-center"> <!-- Agregado un margen inferior para separar el botón -->
                 <a class="btn btn-primary" href="{{route("alumnos.create")}}">Nuevo alumno</a>
             </div>
         @endauth
+        <h1 class="text-3xl font-bold text-red-600 text-center">Listado de alumnos</h1>
+        <p>Página actual: <b>{{$alumnos->currentPage()}}</b></p>
+    </div>
+    <div>
+        @if(session()->get("status"))
+            <div id="statusMessage" role="alert" class="alert alert-success flex items-center justify-center m-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>{{session()->get("status")}}</span>
+            </div>
+        @endif
     </div>
     <div class="max-h-[60vh] overflow-y-auto min-h-screen">
         <table class="w-full border-collapse border border-gray-300">
@@ -58,6 +61,11 @@
             @endforeach
             </tbody>
         </table>
+        <div class="flex justify-center mt-5">
+            <div class="flex justify-center bg-white p-3">
+                {{$alumnos->links()}}
+            </div>
+        </div>
     </div>
 </x-secciones.layout>
 <script>
