@@ -6,7 +6,7 @@
             </div>
         @endauth
         <h1 class="text-3xl font-bold text-red-600 text-center">Listado de alumnos</h1>
-        <p>Página actual: <b>{{$alumnos->currentPage()}}</b></p>
+        <p>Página: <b>{{$alumnos->currentPage()}}</b> de <b>{{$alumnos->lastPage()}}</b></p>
     </div>
     <div>
         @if(session()->get("status"))

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Alumno;
+use App\Models\Profesor;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,6 +14,6 @@ class AlumnoSeeder extends Seeder
      */
     public function run(): void
     {
-        Alumno::factory(50)->create(); // Es lo mismo que un for
+        Alumno::factory(50)->create();
     }
 }

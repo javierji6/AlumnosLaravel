@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('dni');
             $table->integer('edad');
             $table->string('email');
+            $table->foreignId('idProfesor')->constrained('profesores')->cascadeOnDelete();
             $table->timestamps();
         });
     }

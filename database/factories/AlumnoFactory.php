@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Profesor;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -23,11 +24,14 @@ class AlumnoFactory extends Factory
     }
     public function definition(): array
     {
+        $profesores = Profesor::all();
+        $profesor = $profesores->random();
         return [
             "nombre" => fake() -> name,
             "email" => fake() -> email,
             "edad" => fake() -> numberBetween(13, 50),
-            "dni" => $this->getDni()
+            "dni" => $this->getDni(),
+            "idProfesor" => $profesor->id,
         ];
     }
 }

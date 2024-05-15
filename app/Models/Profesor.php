@@ -10,4 +10,8 @@ class Profesor extends Model
     use HasFactory;
 
     protected $fillable=["nombre", "dni", "edad", "email"];
+
+    public function alumnos() {
+        return $this->hasMany(Alumno::class);
+    }
 }

@@ -3,7 +3,7 @@
 namespace App\Policies;
 
 use App\Models\Alumno;
-use App\Models\User;
+use App\Models\Usuario;
 use Illuminate\Auth\Access\Response;
 
 class AlumnoPolicy
@@ -11,7 +11,7 @@ class AlumnoPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    public function viewAny(Usuario $user): bool
     {
         //
     }
@@ -19,7 +19,7 @@ class AlumnoPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Alumno $producto): bool
+    public function view(Usuario $user, Alumno $producto): bool
     {
         //
     }
@@ -27,7 +27,7 @@ class AlumnoPolicy
     /**
      * Determine whether the user can create models.
      */
-    public function create(User $user): bool
+    public function create(Usuario $user): bool
     {
         //
     }
@@ -35,7 +35,7 @@ class AlumnoPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Alumno $producto): bool
+    public function update(Usuario $user, Alumno $producto): bool
     {
         //
     }
@@ -43,7 +43,7 @@ class AlumnoPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Alumno $producto): bool
+    public function delete(Usuario $user, Alumno $producto): bool
     {
         //
     }
@@ -51,7 +51,7 @@ class AlumnoPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Alumno $producto): bool
+    public function restore(Usuario $user, Alumno $producto): bool
     {
         //
     }
@@ -59,7 +59,7 @@ class AlumnoPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Alumno $producto): bool
+    public function forceDelete(Usuario $user, Alumno $producto): bool
     {
         //
     }
