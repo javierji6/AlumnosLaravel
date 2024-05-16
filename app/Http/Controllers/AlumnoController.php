@@ -24,7 +24,8 @@ class AlumnoController extends Controller
      */
     public function create()
     {
-        return view("alumnos.create");
+        $profesores = Profesor::all();
+        return view("alumnos.create", compact("profesores"));
     }
 
     /**
@@ -34,6 +35,8 @@ class AlumnoController extends Controller
     {
         $datos = $request->input();
         $alumno = new Alumno($datos);
+        $alumno->idProfesor = $request->idProfesor;
+
         session()->flash("status", "Se ha creado el alumno $alumno->nombre");
         $alumno->save();
         return redirect()->route('alumnos.index');
@@ -62,6 +65,7 @@ class AlumnoController extends Controller
     public function update(UpdateAlumnoRequest $request, Alumno $alumno)
     {
         $datos = $request->input();
+        $alumno->idProfesor = $request->idProfesor;
         $alumno->update($datos);
         session()->flash("status", "Se ha actualizado el alumno $alumno->nombre");
         return redirect()->route('alumnos.index');
