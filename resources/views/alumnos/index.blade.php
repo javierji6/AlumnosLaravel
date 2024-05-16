@@ -29,6 +29,7 @@
                     <th class="px-2 py-2">DNI</th>
                     <th class="px-2 py-2">Edad</th>
                     <th class="px-2 py-2">Email</th>
+                    <th class="px-2 py-2">Tutor</th>
                     @auth
                         <th class="px-2 py-2">Editar</th>
                         <th class="px-2 py-2">Borrar</th>
@@ -42,6 +43,13 @@
                     <td class="px-2 py-2 text-center">{{$alumno->dni}}</td>
                     <td class="px-2 py-2 text-center">{{$alumno->edad}}</td>
                     <td class="px-2 py-2 text-center">{{$alumno->email}}</td>
+                    <td class="px-2 py-2 text-center">
+                        @if($alumno->profesor)
+                            {{ $alumno->profesor->nombre}}
+                        @else
+                            Sin tutor asignado
+                        @endif
+                    </td>
                     @auth
                         <td class="px-2 py-2 text-center">
                             <a href="{{route("alumnos.edit", $alumno->id)}}" class="text-blue-600 hover:text-blue-800 transition-colors duration-300 flex items-center justify-center">

@@ -12,6 +12,6 @@ class Alumno extends Model
     protected $fillable=["nombre", "dni", "edad", "email"]; // Especifíca los atributos que se pueden asignar en masa
 
     public function profesor() {
-        return $this->belongsTo(Profesor::class);
+        return $this->belongsTo(Profesor::class, "idProfesor");
     }
 }

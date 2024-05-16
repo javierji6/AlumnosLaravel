@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Alumno;
 use App\Http\Requests\StoreAlumnoRequest;
 use App\Http\Requests\UpdateAlumnoRequest;
+use App\Models\Profesor;
 
 class AlumnoController extends Controller
 {
@@ -14,7 +15,7 @@ class AlumnoController extends Controller
     public function index()
     {
         //$alumnos = Alumno::all();
-        $alumnos = Alumno::paginate(10);
+        $alumnos = Alumno::paginate(12);
         return view('alumnos.index', ["alumnos"=>$alumnos]);
     }
 
@@ -51,7 +52,8 @@ class AlumnoController extends Controller
      */
     public function edit(Alumno $alumno)
     {
-        return view("alumnos.edit", compact("alumno"));
+        $profesores = Profesor::all();
+        return view("alumnos.edit", compact("alumno", "profesores"));
     }
 
     /**

@@ -33,6 +33,16 @@
                     <div class="text-sm text-red-600">{{ $message }}</div>
                     @enderror
                 </div>
+                <div class="mb-4">
+                    <x-input-label for="idProfesor">Tutor</x-input-label>
+                    <select name="idProfesor" class="input-field">
+                        @foreach($profesores as $profesor)
+                            <option value="{{ $profesor->id }}" {{ $alumno->idProfesor == $profesor->id ? 'selected' : '' }}>
+                                {{ $profesor->nombre }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="flex justify-end">
                     <button onclick="confirmUpdate()" class="btn btn-primary mr-2" type="button">Guardar</button>
                     <a href="{{ route('alumnos.index') }}" class="btn btn-secondary">Cancelar</a>
