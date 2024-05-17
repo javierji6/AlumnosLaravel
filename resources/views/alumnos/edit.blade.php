@@ -9,33 +9,33 @@
                     <x-input-label class="block text-gray-700 text-sm font-bold mb-2" for="nombre">Nombre</x-input-label>
                     <input type="text" name="nombre" value="{{ $alumno->nombre }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     @error('nombre')
-                    <div class="text-sm text-red-600">{{ $message }}</div>
+                    <p class="text-red-600 text-sm italic pt-2">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="mb-4">
-                    <x-input-label for="dni">DNI</x-input-label>
-                    <input type="text" name="dni" value="{{ $alumno->dni }}" class="input-field">
+                    <x-input-label class="block text-gray-700 text-sm font-bold mb-2" for="dni">DNI</x-input-label>
+                    <input type="text" name="dni" value="{{ $alumno->dni }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     @error('dni')
-                    <div class="text-sm text-red-600">{{ $message }}</div>
+                    <p class="text-red-600 text-sm italic pt-2">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="mb-4">
-                    <x-input-label for="email">Email</x-input-label>
-                    <input type="email" name="email" value="{{ $alumno->email }}" class="input-field">
+                    <x-input-label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</x-input-label>
+                    <input type="email" name="email" value="{{ $alumno->email }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     @error('email')
-                    <div class="text-sm text-red-600">{{ $message }}</div>
+                    <p class="text-red-600 text-sm italic pt-2">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="mb-4">
-                    <x-input-label for="edad">Edad</x-input-label>
-                    <input type="text" name="edad" value="{{ $alumno->edad }}" class="input-field">
+                    <x-input-label class="block text-gray-700 text-sm font-bold mb-2" for="edad">Edad</x-input-label>
+                    <input type="text" name="edad" value="{{ $alumno->edad }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     @error('edad')
-                    <div class="text-sm text-red-600">{{ $message }}</div>
+                    <p class="text-red-600 text-sm italic pt-2">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="mb-4">
-                    <x-input-label for="idProfesor">Tutor</x-input-label>
-                    <select name="idProfesor" class="input-field">
+                    <x-input-label class="block text-gray-700 text-sm font-bold mb-2" for="idProfesor">Tutor</x-input-label>
+                    <select name="idProfesor" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
                         <option value="">Sin tutor</option>
                         @foreach($profesores as $profesor)
                             <option value="{{ $profesor->id }}" {{ $alumno->idProfesor == $profesor->id ? 'selected' : '' }}>

@@ -6,31 +6,31 @@
             @method('PUT')
                 @csrf
                 <div class="mb-4">
-                    <x-input-label for="nombre">Nombre</x-input-label>
-                    <input type="text" name="nombre" value="{{ $profesor->nombre }}" class="input-field">
+                    <x-input-label class="block text-gray-700 text-sm font-bold mb-2" for="nombre">Nombre</x-input-label>
+                    <input type="text" name="nombre" value="{{ $profesor->nombre }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     @error('nombre')
-                    <div class="text-sm text-red-600">{{ $message }}</div>
+                    <p class="text-red-600 text-sm italic pt-2">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="mb-4">
-                    <x-input-label for="dni">DNI</x-input-label>
-                    <input type="text" name="dni" value="{{ $profesor->dni }}" class="input-field">
+                    <x-input-label class="block text-gray-700 text-sm font-bold mb-2" for="dni">DNI</x-input-label>
+                    <input type="text" name="dni" value="{{ $profesor->dni }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     @error('dni')
-                    <div class="text-sm text-red-600">{{ $message }}</div>
+                    <p class="text-red-600 text-sm italic pt-2">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="mb-4">
-                    <x-input-label for="email">Email</x-input-label>
-                    <input type="email" name="email" value="{{ $profesor->email }}" class="input-field">
+                    <x-input-label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</x-input-label>
+                    <input type="email" name="email" value="{{ $profesor->email }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     @error('email')
-                    <div class="text-sm text-red-600">{{ $message }}</div>
+                    <p class="text-red-600 text-sm italic pt-2">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="mb-4">
-                    <x-input-label for="edad">Edad</x-input-label>
-                    <input type="text" name="edad" value="{{ $profesor->edad }}" class="input-field">
+                    <x-input-label class="block text-gray-700 text-sm font-bold mb-2" for="edad">Edad</x-input-label>
+                    <input type="text" name="edad" value="{{ $profesor->edad }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     @error('edad')
-                    <div class="text-sm text-red-600">{{ $message }}</div>
+                    <p class="text-red-600 text-sm italic pt-2">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="flex justify-end">

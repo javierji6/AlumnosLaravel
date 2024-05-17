@@ -25,7 +25,7 @@
         <table class="w-full border-collapse border border-gray-300">
             <thead class="text-lg text-white bg-gray-800 sticky top-0">
                 <tr>
-                    <th class="px-2 py-2">{{__("Nombre")}}</th>
+                    <th class="px-2 py-2">Nombre</th>
                     <th class="px-2 py-2">DNI</th>
                     <th class="px-2 py-2">Edad</th>
                     <th class="px-2 py-2">Email</th>
@@ -51,7 +51,7 @@
                             </a>
                         </td>
                         <td class="px-2 py-2 text-center">
-                            <form method="POST" action="{{route("profesores.destroy", $profesor->id)}}">
+                            <form method="POST" action="{{route("profesores.destroy", $profesor->id)}}" class="delete-form">
                                 @csrf
                                 @method("DELETE")
                                 <button type="submit" class="text-red-600 hover:text-red-800 transition-colors duration-300">
@@ -74,8 +74,31 @@
     </div>
 </x-secciones.layout>
 <script>
+
+    // Alert succes desaparece en 5 segundos
     const statusMessage = document.getElementById('statusMessage');
     setTimeout(function() {
         statusMessage.style.display = 'none';
-    }, 5000); // 5 segundos
+    }, 5000);
+
+    // Modal de confirmación para borrar
+    document.querySelectorAll('.delete-form').forEach(form => {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "No podrás revertir esto.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, borrar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.submit();
+                }
+            });
+        });
+    });
 </script>
