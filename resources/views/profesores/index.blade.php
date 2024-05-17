@@ -15,7 +15,7 @@
     </div>
     <div>
         @if(session()->get("status"))
-            <div id="statusMessage" role="alert" class="alert alert-success flex items-center justify-center m-2">
+            <div id="statusMessage" role="alert" class="flex items-center justify-center m-2 bg-success border border-success text-black px-4 py-3 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 <span>{{session()->get("status")}}</span>
             </div>
@@ -75,11 +75,15 @@
 </x-secciones.layout>
 <script>
 
-    // Alert succes desaparece en 5 segundos
-    const statusMessage = document.getElementById('statusMessage');
-    setTimeout(function() {
-        statusMessage.style.display = 'none';
-    }, 5000);
+    //Esperamos a que el contenido del DOM se cargue
+    document.addEventListener('DOMContentLoaded', function() {
+        const statusMessage = document.getElementById('statusMessage');
+        if (statusMessage) {
+            setTimeout(function() {
+                statusMessage.style.display = 'none';
+            }, 5000); // Alert success desaparece en 5 segundos
+        }
+    });
 
     // Modal de confirmación para borrar
     document.querySelectorAll('.delete-form').forEach(form => {
