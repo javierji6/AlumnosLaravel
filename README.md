@@ -2,6 +2,8 @@
 
 Este README va documentando el proyecto de Laravel.
 
+Enlace del proyecto en Git: [https://github.com/javierji6/AlumnosLaravel](https://github.com/javierji6/AlumnosLaravel).
+
 ## 1. Inicio del Proyecto
 
 Para crear un nuevo proyecto de Laravel, tenemos que ejecutar el siguiente comando:
